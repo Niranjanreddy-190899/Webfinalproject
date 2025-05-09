@@ -32,8 +32,8 @@ const renderErrorPage = (res) => {
 }
 
 async function main() {
-    const username = "suresh";
-    const password = "suresh";
+    const username = "niranjan";
+    const password = "niranjan";
     const uri = `mongodb+srv://niranjanreddyeswaravaka:Qwerty1!@cluster0.1hp9ofy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
     const client = new MongoClient(uri);
 
@@ -41,7 +41,7 @@ async function main() {
         // Connect to the MongoDB cluster
         await client.connect();
         console.log(" connection happened here")
-        const data = await fetchTrainDetails(client);
+        const data = await fetchMobileDetails(client);
         return data;
     } catch (e) {
         console.log("Something went wrong while connecting to the database");
@@ -54,7 +54,7 @@ async function main() {
 
 main();
 
-async function fetchTrainDetails(client) {
+async function fetchMobileDetails(client) {
     try {
         const cursor = client.db("mobile").collection("phones").find({});
         const results = await cursor.toArray();
@@ -71,12 +71,12 @@ async function fetchTrainDetails(client) {
 const server = http.createServer(async (req, res) => {
     if (req.url === '/api') {
         const content = main();
-        content.then((trainDetails) => {
+        content.then((mobileDetails) => {
             res.setHeader('Access-Control-Allow-Origin', '*');
             res.setHeader('Access-Control-Allow-Methods', 'GET');
             res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
             res.writeHead(200, { 'content-type': 'application/json' });
-            res.end(trainDetails);
+            res.end(mobileDetails);
 
         });
     }
