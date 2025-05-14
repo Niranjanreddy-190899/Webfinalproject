@@ -8,6 +8,7 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 header {
     background-color: #2c3e50;
     color: white;
@@ -97,7 +98,7 @@ nav.navigation {
 
 #photo,
 #about {
-    background-color: #5e5257;
+    background-color: #e6e6fa;
     text-align: center;
     padding: 20px;
     height: auto;
@@ -119,7 +120,7 @@ nav.navigation {
 #experience,
 #certifications,
 #contact {
-    background-color: #5e5257;
+    background-color: #e6e6fa;
     text-align: center;
     padding: 20px;
     height: auto;
